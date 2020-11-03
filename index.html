@@ -163,19 +163,9 @@
       
         <h2 id="【leetcode845】数组中的最长山脉"><a href="#【leetcode845】数组中的最长山脉" class="headerlink" title="【leetcode845】数组中的最长山脉"></a>【leetcode845】数组中的最长山脉</h2><h3 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h3><p>思路来源：力扣（LeetCode）</p>
 <p>​        由于从左侧山脚到山顶的序列是严格单调递增的，而从山顶到右侧山脚的序列是严格单调递减的，因此我们可以使用动态规划（也可以理解为递推）的方法，计算出从任意一个元素开始，向左右两侧最多可以扩展的元素数目。</p>
-<p>​        用left[i]记录数组A中每一项的左边递增元素个数，right[i]记录数组A中每一项的右边递减元素个数。<br>$$<br>left[i] =<br>\begin{cases}<br>left[i-1]+1 &amp; A[i]&gt;A[i-1]\<br>0 &amp; A[i]\leq A[i-1]或i = 0<br>\end{cases}<br>$$</p>
-<p>$$<br>right[i] =<br>\begin{cases}<br>right[i+1]+1 &amp; A[i]&gt;A[i+1]\<br>0 &amp; A[i]\leq A[i+1]或i = n-1<br>\end{cases}<br>$$<br>​        当left[i]和right[i]都大于0时，满足“山脉”条件，找到最长“山脉”。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">longestMountain</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length = A.size();</span><br><span class="line">    <span class="keyword">if</span>(!length)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">left</span><span class="params">(length)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; length; ++i)&#123;</span><br><span class="line">        left[i] = (A[i] &gt; A[i - <span class="number">1</span>]?left[i - <span class="number">1</span>] + <span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">right</span><span class="params">(length)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = length - <span class="number">2</span>;i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        right[i] = (A[i] &gt; A[i + <span class="number">1</span>]?right[i + <span class="number">1</span>] + <span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; length; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(left[i] &gt; <span class="number">0</span> &amp;&amp; right[i] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            ans = max(ans,(left[i] + right[i] + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
+        
+          <a class="article-more-a" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/#more">more >></a>
+        
       
 
       
