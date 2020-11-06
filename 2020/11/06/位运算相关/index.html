@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>位运算相关 | 咸鱼也有梦想</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="根据数字二进制下1的数目排序【leetcode1356】思路与算法排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。 统计一个数的二进制数有几个1。 1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++； 2.将当前数除以2，继续步骤1，统计，直到数字为0。 ​    求除以 2 的余数可以用位与运算符：n &amp; 1 123450101 &amp;am">
+  <meta name="description" content="根据数字二进制下1的数目排序【leetcode1356】思路与算法排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。 统计一个数的二进制数有几个1。 1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++； 2.将当前数除以2，继续步骤1，统计，直到数字为0。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="位运算相关">
 <meta property="og:url" content="http://example.com/2020/11/06/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="咸鱼也有梦想">
-<meta property="og:description" content="根据数字二进制下1的数目排序【leetcode1356】思路与算法排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。 统计一个数的二进制数有几个1。 1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++； 2.将当前数除以2，继续步骤1，统计，直到数字为0。 ​    求除以 2 的余数可以用位与运算符：n &amp; 1 123450101 &amp;am">
+<meta property="og:description" content="根据数字二进制下1的数目排序【leetcode1356】思路与算法排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。 统计一个数的二进制数有几个1。 1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++； 2.将当前数除以2，继续步骤1，统计，直到数字为0。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-06T13:04:08.000Z">
-<meta property="article:modified_time" content="2020-11-06T13:13:38.779Z">
+<meta property="article:modified_time" content="2020-11-06T13:28:01.188Z">
 <meta property="article:author" content="咸鱼也有梦想">
 <meta property="article:tag" content="位运算">
 <meta name="twitter:card" content="summary">
@@ -165,7 +165,7 @@
         <h2 id="根据数字二进制下1的数目排序【leetcode1356】"><a href="#根据数字二进制下1的数目排序【leetcode1356】" class="headerlink" title="根据数字二进制下1的数目排序【leetcode1356】"></a>根据数字二进制下1的数目排序【leetcode1356】</h2><h3 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h3><p>排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。</p>
 <p>统计一个数的二进制数有几个1。</p>
 <p>1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++；</p>
-<p>2.将当前数除以2，继续步骤1，统计，直到数字为0。</p>
+<p>2.将当前数除以2，继续步骤1，统计，直到数字为0。<br><a id="more"></a></p>
 <p>​    求除以 2 的余数可以用位与运算符：n &amp; 1</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0101</span> &amp; <span class="number">0001</span> </span><br><span class="line"><span class="number">0001</span>  <span class="comment">// 5 &amp; 1 = 1</span></span><br><span class="line"></span><br><span class="line"><span class="number">0110</span> &amp; <span class="number">0001</span> </span><br><span class="line"><span class="number">0000</span>  <span class="comment">// 6 &amp; 1 = 0</span></span><br></pre></td></tr></table></figure>
 <p>除以 2 可以用移位运算符：n &gt;&gt; 1</p>
