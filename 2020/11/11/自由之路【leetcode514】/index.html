@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>咸鱼也有梦想</title>
+  <title>自由之路【leetcode514】 | 咸鱼也有梦想</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全力以赴会让你永远成功永远胜利吗？不会，但拼尽全力会让你晚上睡得安心一些">
-<meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼也有梦想">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="思路与算法定义一个数组dp [i] [j]表示key的第i个字符，与ring的第j个字符转到12：00的最少步数。 对每个ring的字符维护一个pos[i]的vector，表示字符i在ring中的位置。  dp[i][j] &#x3D; \min_{k\in pos[key[i -1]-&#39;a&#39;]}(dp[i - 1][k] + min{abs(j - k),n - abs(j - k)} + 1)答案即为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自由之路【leetcode514】">
+<meta property="og:url" content="http://example.com/2020/11/11/%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF%E3%80%90leetcode514%E3%80%91/index.html">
 <meta property="og:site_name" content="咸鱼也有梦想">
-<meta property="og:description" content="全力以赴会让你永远成功永远胜利吗？不会，但拼尽全力会让你晚上睡得安心一些">
+<meta property="og:description" content="思路与算法定义一个数组dp [i] [j]表示key的第i个字符，与ring的第j个字符转到12：00的最少步数。 对每个ring的字符维护一个pos[i]的vector，表示字符i在ring中的位置。  dp[i][j] &#x3D; \min_{k\in pos[key[i -1]-&#39;a&#39;]}(dp[i - 1][k] + min{abs(j - k),n - abs(j - k)} + 1)答案即为">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-11T13:51:25.000Z">
+<meta property="article:modified_time" content="2020-11-11T14:07:30.219Z">
 <meta property="article:author" content="咸鱼也有梦想">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼也有梦想" type="application/atom+xml">
@@ -139,16 +142,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-自由之路【leetcode514】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-自由之路【leetcode514】" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/11/%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF%E3%80%90leetcode514%E3%80%91/">自由之路【leetcode514】</a>
+    <h1 class="article-title" itemprop="name">
+      自由之路【leetcode514】
     </h1>
   
 
@@ -171,6 +172,27 @@ dp[i][j] = \min_{k\in pos[key[i -1]-'a']}(dp[i - 1][k] + min{abs(j - k),n - abs(
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -189,16 +211,75 @@ dp[i][j] = \min_{k\in pos[key[i -1]-'a']}(dp[i - 1][k] + min{abs(j - k),n - abs(
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/11/%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF%E3%80%90leetcode514%E3%80%91/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/11/%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF%E3%80%90leetcode514%E3%80%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">c++优先队列</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -218,489 +299,14 @@ dp[i][j] = \min_{k\in pos[key[i -1]-'a']}(dp[i - 1][k] + min{abs(j - k),n - abs(
 
 
 
-
   
-    <article id="post-c-优先队列" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">c++优先队列</a>
-    </h1>
   
 
-        
-        <a href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="archive-article-date">
-  	<time datetime="2020-11-09T05:17:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>文章转自csdn，原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36888577/article/details/79937886">https://blog.csdn.net/weixin_36888577/article/details/79937886</a></p>
-<p>既然是队列那么先要包含头文件<code>#include &lt;queue&gt;</code>, 他和<code>queue</code>不同的就在于我们可以自定义其中数据的优先级, 让优先级高的排在队列前面,优先出队</p>
-<p>优先队列具有队列的所有特性，包括基本操作，只是在这基础上添加了内部的一个排序，它本质是一个堆实现的</p>
-        
-          <a class="article-more-a" href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">优先队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-股票问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/">股票问题</a>
-    </h1>
   
 
-        
-        <a href="/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-09T04:14:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="买卖股票的最佳时机-Ⅱ【leetcode122】"><a href="#买卖股票的最佳时机-Ⅱ【leetcode122】" class="headerlink" title="买卖股票的最佳时机 Ⅱ【leetcode122】"></a>买卖股票的最佳时机 Ⅱ【leetcode122】</h2><h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><p>​        所谓贪心算法是指，在对问题求解时，总是<strong>做出在当前看来是最好的选择</strong>。也就是说，不从整体最优上加以考虑，它所做出的仅仅是在某种意义上的<strong>局部最优解</strong>。</p>
-<p>​        贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性（即某个状态以后的过程不会影响以前的状态，只与当前状态有关。）</p>
-<p>​        <strong>所以，对所采用的贪心策略一定要仔细分析其是否满足无后效性。</strong></p>
-        
-          <a class="article-more-a" href="/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-归并排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">归并排序</a>
-    </h1>
   
 
-        
-        <a href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-11-07T14:09:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="归并排序算法"><a href="#归并排序算法" class="headerlink" title="归并排序算法"></a>归并排序算法</h2><p>​        原理：假设初始序列含有n个记录，则可以看成是n个有序的子序列，每个子序列的长度为1，然后两两归并，得到n/2个长度为2或1的有序子序列；再两两归并，如此重复，直至得到一个长度为n的有序序列为止。</p>
-        
-          <a class="article-more-a" href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">归并排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-位运算相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/06/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3/">位运算相关</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/06/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3/" class="archive-article-date">
-  	<time datetime="2020-11-06T13:04:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="根据数字二进制下1的数目排序【leetcode1356】"><a href="#根据数字二进制下1的数目排序【leetcode1356】" class="headerlink" title="根据数字二进制下1的数目排序【leetcode1356】"></a>根据数字二进制下1的数目排序【leetcode1356】</h2><h3 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h3><p>排序只需要更改sort()函数的排序函数，问题关键在于计算数字二进制下1的个数。</p>
-<p>统计一个数的二进制数有几个1。</p>
-<p>1.求其除以2的余数，如果余数是1，说明当前二进制位上是1，ans++；</p>
-<p>2.将当前数除以2，继续步骤1，统计，直到数字为0。<br>
-        
-          <a class="article-more-a" href="/2020/11/06/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">位运算</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/06/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9B%B8%E5%85%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-山脉问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/">山脉问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-03T05:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="【leetcode845】数组中的最长山脉"><a href="#【leetcode845】数组中的最长山脉" class="headerlink" title="【leetcode845】数组中的最长山脉"></a>【leetcode845】数组中的最长山脉</h2><h3 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h3><p>思路来源：力扣（LeetCode）</p>
-<p>​        由于从左侧山脚到山顶的序列是严格单调递增的，而从山顶到右侧山脚的序列是严格单调递减的，因此我们可以使用动态规划（也可以理解为递推）的方法，计算出从任意一个元素开始，向左右两侧最多可以扩展的元素数目。</p>
-        
-          <a class="article-more-a" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/13/%E6%B5%8B%E8%AF%95/">测试</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/13/%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-10-13T08:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容<br>xixi</p>
-<hr>
-        
-          <a class="article-more-a" href="/2020/10/13/%E6%B5%8B%E8%AF%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">xxx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/13/%E6%B5%8B%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -723,8 +329,8 @@ dp[i][j] = \min_{k\in pos[key[i -1]-'a']}(dp[i - 1][k] + min{abs(j - k),n - abs(
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
