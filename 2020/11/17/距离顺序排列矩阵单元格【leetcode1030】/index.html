@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>股票问题 | 咸鱼也有梦想</title>
+  <title>距离顺序排列矩阵单元格【leetcode1030】 | 咸鱼也有梦想</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="买卖股票的最佳时机 Ⅱ【leetcode122】贪心算法​        所谓贪心算法是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，它所做出的仅仅是在某种意义上的局部最优解。 ​        贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性（即某个状态以后的">
+  <meta name="description" content="桶排序​        思路很简单，要排序从小到大的点，就遍历所有点，把这些点按距离分桶，存在vector中，再按从小到大的距离输出这些点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="股票问题">
-<meta property="og:url" content="http://example.com/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="距离顺序排列矩阵单元格【leetcode1030】">
+<meta property="og:url" content="http://example.com/2020/11/17/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC%E3%80%90leetcode1030%E3%80%91/index.html">
 <meta property="og:site_name" content="咸鱼也有梦想">
-<meta property="og:description" content="买卖股票的最佳时机 Ⅱ【leetcode122】贪心算法​        所谓贪心算法是指，在对问题求解时，总是做出在当前看来是最好的选择。也就是说，不从整体最优上加以考虑，它所做出的仅仅是在某种意义上的局部最优解。 ​        贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性（即某个状态以后的">
+<meta property="og:description" content="桶排序​        思路很简单，要排序从小到大的点，就遍历所有点，把这些点按距离分桶，存在vector中，再按从小到大的距离输出这些点。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-09T04:14:48.000Z">
-<meta property="article:modified_time" content="2020-11-09T04:39:08.825Z">
+<meta property="article:published_time" content="2020-11-17T12:18:49.000Z">
+<meta property="article:modified_time" content="2020-11-17T12:32:27.220Z">
 <meta property="article:author" content="咸鱼也有梦想">
-<meta property="article:tag" content="动态规划">
-<meta property="article:tag" content="贪心算法">
+<meta property="article:tag" content="几何法">
+<meta property="article:tag" content="桶排序">
+<meta property="article:tag" content="move函数">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼也有梦想" type="application/atom+xml">
@@ -143,33 +144,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-股票问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-距离顺序排列矩阵单元格【leetcode1030】" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      股票问题
+      距离顺序排列矩阵单元格【leetcode1030】
     </h1>
   
 
         
-        <a href="/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-09T04:14:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-09</time>
+        <a href="/2020/11/17/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC%E3%80%90leetcode1030%E3%80%91/" class="archive-article-date">
+  	<time datetime="2020-11-17T12:18:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="买卖股票的最佳时机-Ⅱ【leetcode122】"><a href="#买卖股票的最佳时机-Ⅱ【leetcode122】" class="headerlink" title="买卖股票的最佳时机 Ⅱ【leetcode122】"></a>买卖股票的最佳时机 Ⅱ【leetcode122】</h2><h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><p>​        所谓贪心算法是指，在对问题求解时，总是<strong>做出在当前看来是最好的选择</strong>。也就是说，不从整体最优上加以考虑，它所做出的仅仅是在某种意义上的<strong>局部最优解</strong>。</p>
-<p>​        贪心算法没有固定的算法框架，算法设计的关键是贪心策略的选择。必须注意的是，贪心算法不是对所有问题都能得到整体最优解，选择的贪心策略必须具备无后效性（即某个状态以后的过程不会影响以前的状态，只与当前状态有关。）</p>
-<p>​        <strong>所以，对所采用的贪心策略一定要仔细分析其是否满足无后效性。</strong></p>
+        <h2 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h2><p>​        思路很简单，要排序从小到大的点，就遍历所有点，把这些点按距离分桶，存在vector中，再按从小到大的距离输出这些点。</p>
 <a id="more"></a>
-<h4 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h4><p>​        因为购买没有次数限制，那么采用贪心算法找到每个区间的局部最优解，即第i+1天相对于第i天股价是涨的，就卖出并把收益统计，遍历股价数组就能得到答案。</p>
-<p>​        值得注意的是，贪心算法计算的只是最大利润，并不是实际的交易过程。所以当需要体现具体交易过程的题目，不能使用贪心算法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> days = prices.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; days; ++i)&#123;</span><br><span class="line">            ans += max(<span class="number">0</span>,prices[i] - prices[i - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dist</span><span class="params">(<span class="keyword">int</span> r1,<span class="keyword">int</span> c1,<span class="keyword">int</span> r2,<span class="keyword">int</span> c2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">abs</span>(r1 - r2) + <span class="built_in">abs</span>(c1 -c2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxdit = max(r0,R - <span class="number">1</span> - r0) + max(c0,C - <span class="number">1</span> - c0);</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; <span class="title">bucket</span><span class="params">(maxdit + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; R;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; C;++j)&#123;</span><br><span class="line">                <span class="keyword">int</span> dit = dist(i,j,r0,c0);</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = &#123;i,j&#125;;</span><br><span class="line">                bucket[dit].push_back(move(tmp));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; maxdit + <span class="number">1</span>;++i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> x:bucket[i])&#123;</span><br><span class="line">                ans.push_back(x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h3><p>​        值得注意的是代码中的.push_back（move(tmp))，move函数的使用。</p>
+<p>​        std::move并不能移动任何东西，它唯一的功能是将一个左值强制转化为右值引用，继而可以通过右值引用使用该值，以用于移动语义。从实现上讲，std::move基本等同于一个类型转换：static_cast&lt;T&amp;&amp;&gt;(lvalue);</p>
+<p>​        C++ 标准库使用比如vector::push_back 等这类函数时,会对参数的对象进行复制,连数据也会复制.这就会造成对象内存的额外创建, 本来原意是想把参数push_back进去就行了,通过std::move，可以避免不必要的拷贝操作。</p>
+<p>​        std::move是为性能而生。</p>
+<p>​        std::move是将对象的状态或者所有权从一个对象转移到另一个对象，只是转移，没有内存的搬迁或者内存拷贝。</p>
+<p>​        以上关于move函数的解释摘自csdn，原文地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chengjian168/article/details/107809308">https://blog.csdn.net/chengjian168/article/details/107809308</a></p>
+<h2 id="几何法"><a href="#几何法" class="headerlink" title="几何法"></a>几何法</h2><p>​        注意到曼哈顿距离相同的位置恰好构成一个斜着的正方形边框，因此我们可以从小到大枚举曼哈顿距离，并使用循环来直接枚举该距离对应的边框。我们每次从该正方形边框的上顶点出发，依次经过右顶点、下顶点和左顶点，最后回到上顶点。这样即可完成当前层的遍历。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">//从（r0,c0）开始每向外一个斜正方形边上的单元格与（r0,c0）的距离都相同</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dr[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dc[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">allCellsDistOrder</span><span class="params">(<span class="keyword">int</span> R, <span class="keyword">int</span> C, <span class="keyword">int</span> r0, <span class="keyword">int</span> c0)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">int</span> row = r0,col = c0;</span><br><span class="line">        ans.push_back(&#123;r0,c0&#125;);</span><br><span class="line">        <span class="keyword">int</span> maxdit = max(r0,R - <span class="number">1</span> - r0) + max(c0,C - <span class="number">1</span> - c0);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> dit = <span class="number">1</span>;dit &lt;= maxdit; ++dit)&#123;</span><br><span class="line">            --row;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">4</span>;++i)&#123;</span><br><span class="line">                <span class="keyword">while</span>((i%<span class="number">2</span> == <span class="number">0</span> &amp;&amp; row != r0) || (i%<span class="number">2</span> != <span class="number">0</span> &amp;&amp; col != c0))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(row &gt;= <span class="number">0</span> &amp;&amp; row &lt; R &amp;&amp; col &gt;= <span class="number">0</span> &amp;&amp; col &lt; C)&#123;</span><br><span class="line">                        ans.push_back(&#123;row,col&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    row += dr[i];</span><br><span class="line">                    col += dc[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -204,11 +209,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">几何法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">桶排序</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">move函数</a>
         		</li>
       		
 		</ul>
@@ -264,7 +273,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/09/%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/17/%E8%B7%9D%E7%A6%BB%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E7%9F%A9%E9%98%B5%E5%8D%95%E5%85%83%E6%A0%BC%E3%80%90leetcode1030%E3%80%91/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +287,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/11/09/c-%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          c++优先队列
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">归并排序</div>
+    <a href="/2020/11/11/%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF%E3%80%90leetcode514%E3%80%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自由之路【leetcode514】</div>
       <i class="icon-circle-right"></i>
     </a>
   
