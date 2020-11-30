@@ -77,7 +77,7 @@
 	        
 		</nav>
 		<nav>
-	    总文章数 11
+	    总文章数 12
 	</nav>
 		<nav class="header-nav">
 			<div class="social">
@@ -141,6 +141,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-重构字符串使其相邻字符不同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/30/%E9%87%8D%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%BF%E5%85%B6%E7%9B%B8%E9%82%BB%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%90%8C/">重构字符串使其相邻字符不同</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/30/%E9%87%8D%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%BF%E5%85%B6%E7%9B%B8%E9%82%BB%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%90%8C/" class="archive-article-date">
+  	<time datetime="2020-11-30T13:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="思路和算法"><a href="#思路和算法" class="headerlink" title="思路和算法"></a>思路和算法</h2><p>题目为leetcode767。</p>
+<p>若字符串长度为length：</p>
+<ul>
+<li>当 n 是偶数时，有 n/2 个偶数下标和 n/2 个奇数下标，因此每个字母的出现次数都不能超过 n/2 次，否则出现次数最多的字母一定会出现相邻。</li>
+<li>当 n 是奇数时，由于共有 (n+1)/2 个偶数下标，因此每个字母的出现次数都不能超过 (n+1)/2 次，否则出现次数最多的字母一定会出现相邻。</li>
+</ul>
+<p>因此首先遍历字符串并统计每个字母的出现次数，如果存在一个字母的出现次数大于 (n+1)/2，则无法重新排布字母使得相邻的字母都不相同，返回空字符串。</p>
+        
+          <a class="article-more-a" href="/2020/11/30/%E9%87%8D%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%BF%E5%85%B6%E7%9B%B8%E9%82%BB%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%90%8C/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">贪心算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/30/%E9%87%8D%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%BF%E5%85%B6%E7%9B%B8%E9%82%BB%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%90%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-上升下降字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -173,12 +255,9 @@
 <li><p>先从未被选择的字符中提取出最长的上升字符串，将其加入答案。</p>
 </li>
 <li><p>然后从未被选择的字符中提取出最长的下降字符串，将其加入答案。</p>
-</li>
-</ol>
-<p>注意到在构造时我们只关注字符本身，而不关注字符在原字符串中的位置。因此我们可以直接创建一个大小为 2626 的桶，记录每种字符的数量。每次提取最长的上升或下降字符串时，我们直接顺序或逆序遍历这个桶。</p>
-<p>具体地，在遍历桶的过程中，如果当前桶的计数值不为零，那么将当前桶对应的字符加入到答案中，并将当前桶的计数值减一即可。我们重复这一过程，直到答案字符串的长度与传入的字符串的长度相等。<br>原文链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/increasing-decreasing-string/solution/shang-sheng-xia-jiang-zi-fu-chuan-by-leetcode-solu/">https://leetcode-cn.com/problems/increasing-decreasing-string/solution/shang-sheng-xia-jiang-zi-fu-chuan-by-leetcode-solu/</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">sortString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">alpha</span><span class="params">(<span class="number">26</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;i:s)&#123;</span><br><span class="line">            ++alpha[i - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">while</span>(ans.size() &lt; s.size())&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">26</span>;++i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(alpha[i])&#123;</span><br><span class="line">                    ans.push_back(<span class="string">&#x27;a&#x27;</span> + i);</span><br><span class="line">                    --alpha[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">25</span>;i &gt;= <span class="number">0</span>;--i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(alpha[i])&#123;</span><br><span class="line">                    ans.push_back(<span class="string">&#x27;a&#x27;</span> + i);</span><br><span class="line">                    --alpha[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2020/11/25/%E4%B8%8A%E5%8D%87%E4%B8%8B%E9%99%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/#more">more >></a>
+        
       
 
       
@@ -871,87 +950,6 @@ dp[i][j] = \min_{k\in pos[key[i -1]-'a']}(dp[i - 1][k] + min{abs(j - k),n - abs(
 
 
   
-    <article id="post-山脉问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/">山脉问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-11-03T05:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="【leetcode845】数组中的最长山脉"><a href="#【leetcode845】数组中的最长山脉" class="headerlink" title="【leetcode845】数组中的最长山脉"></a>【leetcode845】数组中的最长山脉</h2><h3 id="思路与算法"><a href="#思路与算法" class="headerlink" title="思路与算法"></a>思路与算法</h3><p>思路来源：力扣（LeetCode）</p>
-<p>​        由于从左侧山脚到山顶的序列是严格单调递增的，而从山顶到右侧山脚的序列是严格单调递减的，因此我们可以使用动态规划（也可以理解为递推）的方法，计算出从任意一个元素开始，向左右两侧最多可以扩展的元素数目。</p>
-        
-          <a class="article-more-a" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/03/%E5%B1%B1%E8%84%89%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1070,15 +1068,19 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">优先队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">桶排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">优先队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">环形问题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1090,15 +1092,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">环形问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">归并排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">几何法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">move函数</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1111,14 +1117,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">贪心算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">几何法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">move函数</a>
               </li>
              
               <li class="article-tag-list-item">
