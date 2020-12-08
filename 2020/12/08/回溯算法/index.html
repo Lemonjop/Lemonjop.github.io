@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 排序 | 咸鱼也有梦想</title>
+  <title>回溯算法 | 咸鱼也有梦想</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全力以赴会让你永远成功永远胜利吗？不会，但拼尽全力会让你晚上睡得安心一些">
-<meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼也有梦想">
-<meta property="og:url" content="http://example.com/tags/%E6%8E%92%E5%BA%8F/index.html">
+  <meta name="description" content="回溯算法回溯的思想就是不断地尝试，一旦尝试成功，就结束算法，如果尝试失败回到上一步，同时把状态还原到上一步地状态。回溯优化就是进行剪枝操作，即某些不满足继续下一步地条件达成时，直接返回到上一步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="回溯算法">
+<meta property="og:url" content="http://example.com/2020/12/08/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="咸鱼也有梦想">
-<meta property="og:description" content="全力以赴会让你永远成功永远胜利吗？不会，但拼尽全力会让你晚上睡得安心一些">
+<meta property="og:description" content="回溯算法回溯的思想就是不断地尝试，一旦尝试成功，就结束算法，如果尝试失败回到上一步，同时把状态还原到上一步地状态。回溯优化就是进行剪枝操作，即某些不满足继续下一步地条件达成时，直接返回到上一步。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-08T13:39:36.000Z">
+<meta property="article:modified_time" content="2020-12-08T14:08:32.018Z">
 <meta property="article:author" content="咸鱼也有梦想">
+<meta property="article:tag" content="回溯">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="咸鱼也有梦想" type="application/atom+xml">
@@ -139,64 +142,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-回溯算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2020-11-07T14:09:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/07/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">归并排序</a>
+    <h1 class="article-title" itemprop="name">
+      回溯算法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/12/08/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-12-08T13:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="回溯算法"><a href="#回溯算法" class="headerlink" title="回溯算法"></a>回溯算法</h2><p>回溯的思想就是不断地尝试，一旦尝试成功，就结束算法，如果尝试失败回到上一步，同时把状态还原到上一步地状态。回溯优化就是进行剪枝操作，即某些不满足继续下一步地条件达成时，直接返回到上一步。</p>
+<a id="more"></a>  
+<p>回溯算法经典模板：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="string">&quot;原始参数&quot;</span>)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//终止条件(递归必须要有终止条件)</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="string">&quot;终止条件&quot;</span>) &#123;</span><br><span class="line">        <span class="comment">//一些逻辑操作（可有可无，视情况而定）</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="string">&quot;for循环开始的参数&quot;</span>; i &lt; <span class="string">&quot;for循环结束的参数&quot;</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//一些逻辑操作（可有可无，视情况而定）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//做出选择</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//递归</span></span><br><span class="line">        backtrack(<span class="string">&quot;新的参数&quot;</span>);</span><br><span class="line">        <span class="comment">//一些逻辑操作（可有可无，视情况而定）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//撤销选择</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="将数组拆分成斐波那契序列【leetcode842】"><a href="#将数组拆分成斐波那契序列【leetcode842】" class="headerlink" title="将数组拆分成斐波那契序列【leetcode842】"></a>将数组拆分成斐波那契序列【leetcode842】</h2><p>将给定的字符串拆分成斐波那契式序列，可以通过回溯的方法实现。</p>
+<p>使用列表存储拆分出的数，回溯过程中维护该列表的元素，列表初始为空。遍历字符串的所有可能的前缀，作为当前被拆分出的数，然后对剩余部分继续拆分，直到整个字符串拆分完毕。</p>
+<p>根据斐波那契式序列的要求，从第 3 个数开始，每个数都等于前 2 个数的和，因此从第 3 个数开始，需要判断拆分出的数是否等于前 2 个数的和，只有满足要求时才进行拆分，否则不进行拆分。</p>
+<p>回溯过程中，还有三处可以进行剪枝操作。</p>
+<ul>
+<li><p>拆分出的数如果不是 0，则不能以 0 开头，因此如果字符串剩下的部分以 0 开头，就不需要考虑拆分出长度大于 1 的数，因为长度大于 1 的数以 0 开头是不符合要求的，不可能继续拆分得到斐波那契式序列；</p>
+</li>
+<li><p>拆分出的数必须符合 32 位有符号整数类型，即每个数必须在[0,2^31 - 1]的范围内，如果拆分出的数大于[0,2^31 - 1]，则不符合要求，长度更大的数的数值也一定更大，一定也大于[0,2^31 - 1] ，因此不可能继续拆分得到斐波那契式序列；</p>
+</li>
+<li><p>如果列表中至少有 2 个数，并且拆分出的数已经大于最后 2 个数的和，就不需要继续尝试拆分了。</p>
+</li>
+</ul>
+<p>当整个字符串拆分完毕时，如果列表中至少有 3 个数，则得到一个符合要求的斐波那契式序列，返回列表。如果没有找到符合要求的斐波那契式序列，则返回空列表。</p>
+<p>实现方面，回溯需要带返回值，表示是否存在符合要求的斐波那契式序列。</p>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence/solution/jiang-shu-zu-chai-fen-cheng-fei-bo-na-qi-ts6c/">https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence/solution/jiang-shu-zu-chai-fen-cheng-fei-bo-na-qi-ts6c/</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">splitIntoFibonacci</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = S.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        backtrack(ans,S,length,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">backtrack</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;ans,<span class="built_in">string</span> S,<span class="keyword">int</span> length,<span class="keyword">int</span> index,<span class="keyword">long</span> <span class="keyword">long</span> sum,<span class="keyword">int</span> prev)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index == length)&#123;</span><br><span class="line">            <span class="keyword">return</span> ans.size() &gt;= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = index;i &lt; length; ++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; index &amp;&amp; S[index] == <span class="string">&#x27;0&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            curr = curr * <span class="number">10</span> + S[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span>(curr &gt; INT_MAX)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(ans.size() &gt;= <span class="number">2</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(curr &lt; sum)&#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(curr &gt; sum)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.push_back(curr);</span><br><span class="line">            <span class="keyword">if</span>(backtrack(ans,S,length,i + <span class="number">1</span>,prev + curr,curr))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">归并排序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">回溯</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/08/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/12/01/if%E6%9D%A1%E4%BB%B6%E5%92%8C%E5%BE%AA%E7%8E%AF%E6%9D%A1%E4%BB%B6%E4%B8%AD%E6%9C%89%E5%AE%B9%E5%99%A8%E4%B8%80%E5%AE%9A%E8%A6%81%E6%B3%A8%E6%84%8F%E6%98%AF%E5%90%A6%E8%B6%85%E8%BF%87%E5%AE%B9%E5%99%A8%E8%8C%83%E5%9B%B4%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E4%B8%8D%E7%84%B6%E5%B0%B1%E4%BC%9A%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%EF%BC%81%EF%BC%81%EF%BC%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">if条件和循环条件中有容器一定要注意是否超过s容器范围！！！！不然就会内存泄漏！！！</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -219,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
